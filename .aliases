@@ -1,0 +1,39 @@
+phpv() {
+    valet stop
+    brew unlink php@5.6 php@7.0 php@7.1 php@7.2 php@7.3
+    brew link --force --overwrite $1
+    brew services start $1
+    composer global update
+    rm -f ~/.config/valet/valet.sock
+    valet install
+}
+
+# git
+alias gs="git status"
+alias gl="git log"
+alias gaa="git add ."
+alias gc="git commit -m "
+alias gp="git push"
+alias nah="git reset --hard && git clean -df"
+
+# system
+alias code="cd ~/code"
+alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+alias killDock='killall -KILL Dock'
+
+#php
+alias phpunit="vendor/bin/phpunit"
+alias php56="phpv php@5.6"
+alias php70="phpv php@7.0"
+alias php71="phpv php@7.1"
+alias php72="phpv php@7.2"
+alias php73="phpv php"
+
+# java versions
+#alias java12="export JAVA_HOME=`/usr/libexec/java_home -v 12`; java -version"
+alias java11="export JAVA_HOME=`/usr/libexec/java_home -v 11`; java -version"
+#alias java10="export JAVA_HOME=`/usr/libexec/java_home -v 10`; java -version"
+#alias java9="export JAVA_HOME=`/usr/libexec/java_home -v 9`; java -version"
+alias java8="export JAVA_HOME=`/usr/libexec/java_home -v 1.8`; java -version"
+alias java7="export JAVA_HOME=`/usr/libexec/java_home -v 1.7`; java -version"
