@@ -59,21 +59,13 @@ alias aliases="nano ~/.aliases"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source ~/.aliases
 
-# JAVA HOME
-export JAVA_HOME="`/usr/libexec/java_home -v 11`"
-
-# Initialize rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-#Laravel Spark
-export PATH=$HOME/code/laravel/spark:$PATH
-
 #VS Code
 vscode() { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
 #NVM
 export NVM_DIR="$HOME/.nvm"
-. "$(brew --prefix nvm)/nvm.sh"
+[ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" # This loads nvm
+[ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
 
 export YVM_DIR=/usr/local/opt/yvm
 [ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
