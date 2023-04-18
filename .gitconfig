@@ -1,0 +1,15 @@
+[apply]
+	# Detect whitespace errors when applying a patch
+	whitespace = fix
+[core]
+	# Use custom `.gitignore` and `.gitattributes`
+	excludesfile = ~/.gitignore
+	#attributesfile = ~/.gitattributes
+	quotepath = false
+	ignorecase = false
+	editor = nano
+[init]
+	defaultBranch = main
+[user]
+	name = Eddy Löwen
+	email = mail@eddyloewen.com

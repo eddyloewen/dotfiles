@@ -19,13 +19,18 @@ ln -s $HOME/.dotfiles/.zshrc $HOME/.zshrc
 # Update Homebrew recipes
 brew update
 
-
 # Install all our dependencies with bundle (See Brewfile)
 brew tap homebrew/bundle
 brew bundle --file ./Brewfile
 
 # Create a /code directory where all my code lives
 mkdir $HOME/code
+
+# Symlink .gitconfig and .gitignore files
+rm -rf $HOME/.gitconfig
+ln -s $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
+rm -rf $HOME/.gitignore
+ln -s $HOME/.dotfiles/.gitignore $HOME/.gitignore
 
 # Clone Github repositories
 #./clone.sh
